@@ -75,7 +75,7 @@ const DiscussionPanel = () => {
 
   useEffect(() => {
     console.log(SOCKET_SERVER);
-    const socket = io("https://socketio-server-n6dn.onrender.com/");
+    const socket = io("https://socketio-server-n6dn.onrender.com:3001/");
 
     clickedcontact &&
       socket.on("receive_msg", (message, info) => {
