@@ -16,6 +16,7 @@ import useWindowDimensions from "@/lib/useWindowDimensions";
 import ContactsPanel from "./ContactsPanel";
 
 const DiscussionPanel = () => {
+  const { SOCKET_SERVER } = process.env;
   const {
     clickedcontact,
     roomid,
@@ -73,7 +74,7 @@ const DiscussionPanel = () => {
   };
 
   useEffect(() => {
-    const socket = io("http://localhost:3001");
+    const socket = io(SOCKET_SERVER!);
 
     clickedcontact &&
       socket.on("receive_msg", (message, info) => {
