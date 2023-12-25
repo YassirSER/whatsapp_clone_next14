@@ -75,7 +75,7 @@ const DiscussionPanel = () => {
 
   useEffect(() => {
     console.log({ SOCKET_SERVER });
-    const socket = io("https://socketioserver-bestorg.koyeb.app/");
+    const socket = io("https://socketioserver-bestorg.koyeb.app:8000/");
 
     clickedcontact &&
       socket.on("receive_msg", (message, info) => {
