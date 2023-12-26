@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-// import { Segoe } from "next/font/google";
 import "./globals.css";
 import { NextAuthProvider } from "@/lib/NextauthProvider";
 import { GlobalContextProvider } from "./context/theme";
-// const inter = Inter({ subsets: ["latin"] });
 import { Toaster } from "react-hot-toast";
+
+import localFont from "next/font/local";
+// Font files can be colocated inside of `app`
+const myFont = localFont({
+  src: "../fonts/helvetica/HelveticaNeue-Roman.otf",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={myFont.className}>
         <GlobalContextProvider>
           <NextAuthProvider>{children}</NextAuthProvider>
         </GlobalContextProvider>
