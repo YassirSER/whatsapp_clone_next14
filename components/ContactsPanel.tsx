@@ -26,6 +26,7 @@ const ContactsPanel = () => {
     setChat,
     showContacts,
     setShowContacts,
+    clickedcontact,
     lastMsg,
     setLastMsg,
   } = useGlobalContext();
@@ -150,7 +151,7 @@ const ContactsPanel = () => {
       <div className="h-full grid w-full grid-rows-[1fr,10fr] border-solid border-[1px] border-[#D1D7DB]">
         <div
           id="upperbanner"
-          className="bg-[#F0F2F5] flex items-center justify-between pl-[15px] pr-[15px]"
+          className="bg-[#F0F2F5] flex items-center justify-between pl-[15px] pr-[15px] border-b-[1px] border-solid border-b-[#D1D7DB]"
         >
           <div className="flex items-center">
             <Image
@@ -249,12 +250,18 @@ const ContactsPanel = () => {
             contacts.map((contact: any, i: number) => (
               <div
                 id="contact"
-                className="p-[10px] flex justify-between content-center hover:bg-gray-50
-              hover:cursor-pointer border-b-solid border-b-[1px] border-b-[#D1D7DB]"
+                className={
+                  "p-[10px] flex justify-between content-center hover:bg-gray-50 hover:cursor-pointer border-b-solid border-b-[1px] border-b-[#D1D7DB]"
+                }
+                style={
+                  clickedcontact.contactid === contact.contactid
+                    ? { backgroundColor: "#FaFafa" }
+                    : { backgroundColor: "white" }
+                }
                 key={contact.id}
                 onClick={() => handleClick(contact)}
               >
-                <div className="flex items-center">
+                <div className={"flex items-center"}>
                   <div className="p-[5px]">
                     <Image
                       src={"/defaultpic.webp"}
