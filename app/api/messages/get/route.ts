@@ -34,7 +34,7 @@ export async function POST(request: Request) {
       },
     });
 
-    // console.log({ roomMessages });
+    console.log({ roomMessages });
 
     if (roomMessages) {
       return NextResponse.json({ messages: roomMessages });

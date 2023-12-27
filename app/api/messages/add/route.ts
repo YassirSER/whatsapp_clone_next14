@@ -17,6 +17,8 @@ export async function POST(request: Request) {
       where: { id: senderid },
     });
 
+    console.log("here");
+
     return NextResponse.json({ mess: "message created succesfully" });
   } catch (error: any) {
     console.log({ error });
